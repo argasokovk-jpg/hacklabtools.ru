@@ -1,14 +1,166 @@
-<div class="install">
-    <h3>🚀 One-command installation:</h3>
-    <code id="installCommand">curl -sSL https://raw.githubusercontent.com/argasokovk-jpg/hacklabtools.ru/main/install.sh | bash</code>
-    <button onclick="copyCommand()" style="margin-left: 10px; padding: 5px 15px;">📋 Copy</button>
-</div>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackLab Manager - Старт карьеры в пентесте с нуля</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Базовые стили - сохрани их */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #0d1117; color: #c9d1d9; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%); padding: 2rem 0; border-bottom: 1px solid #30363d; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: #58a6ff; }
+        .nav-links a { color: #c9d1d9; margin-left: 2rem; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #58a6ff; }
+        .btn { display: inline-block; background: #238636; color: white; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; transition: background 0.3s; }
+        .btn:hover { background: #2ea043; }
+        .btn-premium { background: linear-gradient(90deg, #9d4edd, #560bad); }
+        section { padding: 5rem 0; }
+        .hero { text-align: center; padding: 6rem 0; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; background: linear-gradient(90deg, #58a6ff, #9d4edd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 2rem; color: #8b949e; }
+        .cta-box { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 3rem; margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .install-command { background: #21262d; padding: 1.2rem; border-radius: 8px; font-family: monospace; margin: 1.5rem 0; border-left: 4px solid #238636; display: flex; justify-content: space-between; align-items: center; }
+        .copy-btn { background: #30363d; color: #c9d1d9; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+        .features-grid, .pricing-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .feature-card, .pricing-card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 2rem; transition: transform 0.3s, border-color 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); border-color: #58a6ff; }
+        .feature-card i { font-size: 2.5rem; color: #58a6ff; margin-bottom: 1rem; }
+        .pricing-card.highlight { border-color: #9d4edd; transform: scale(1.05); }
+        .price { font-size: 2.5rem; font-weight: 700; color: #58a6ff; }
+        footer { text-align: center; padding: 3rem 0; border-top: 1px solid #30363d; color: #8b949e; margin-top: 4rem; }
+        .social-links a { color: #8b949e; margin: 0 10px; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">HackLab Manager</div>
+            <div class="nav-links">
+                <a href="#features">Возможности</a>
+                <a href="#premium">Premium</a>
+                <a href="https://t.me/Hacklab_manager" target="_blank">Сообщество</a>
+                <a href="https://github.com/argasokovk-jpg/hacklab-manager" target="_blank">GitHub</a>
+            </div>
+        </nav>
+    </header>
 
-<script>
-function copyCommand() {
-    const command = document.getElementById('installCommand').innerText;
-    navigator.clipboard.writeText(command).then(() => {
-        alert('Command copied to clipboard!');
-    });
-}
-</script>
+    <section class="hero">
+        <div class="container">
+            <h1>От новичка до профессионального пентестера</h1>
+            <p>Интерактивная CLI-платформа с геймификацией. Освой 12+ инструментов, пройди 10 уровней сложности и построй карьеру в кибербезопасности с нуля.</p>
+            <div class="cta-box">
+                <h3><i class="fas fa-terminal"></i> Установка одной командой:</h3>
+                <div class="install-command">
+                    <code id="installCmd">curl -sSL https://raw.githubusercontent.com/argasokovk-jpg/hacklabtools.ru/main/install.sh | bash</code>
+                    <button class="copy-btn" onclick="copyCommand()"><i class="far fa-copy"></i> Копировать</button>
+                </div>
+                <p style="font-size: 0.9rem; color: #8b949e;">После установки перезапустите терминал и введите <code>hl</code> для старта.</p>
+                <a href="#premium" class="btn btn-premium" style="margin-top: 1rem;"><i class="fas fa-crown"></i> Открыть возможности Premium</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="container">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Что ты получишь</h2>
+        <p style="text-align: center; color: #8b949e; max-width: 700px; margin: 0 auto 3rem;">HackLab Manager — это не просто набор инструментов, это твой карьерный лифт.</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-gamepad"></i>
+                <h3>Геймификация</h3>
+                <p>10 уровней сложности, опыт (XP) за выполнение заданий и система достижений. Обучение как в игре.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-tools"></i>
+                <h3>12+ Инструментов</h3>
+                <p>От сканирования сети и проверки уязвимостей до SQLi, XSS и фаззинга API. Полный цикл пентеста.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-briefcase"></i>
+                <h3>Карьерный путь</h3>
+                <p>Четкий план развития от нуля до Junior Pentester. Консультации и помощь с резюме для участников Premium.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="premium" style="background: #161b22;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Переход на Premium</h2>
+            <p style="text-align: center; color: #8b949e; margin-bottom: 3rem;">Инвестируй в свое будущее. Окупаемость — первый контракт или работа.</p>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Бесплатно</h3>
+                    <p>Базовый доступ для старта</p>
+                    <div class="price">0₽</div>
+                    <ul style="list-style: none; margin: 1.5rem 0;">
+                        <li><i class="fas fa-check" style="color: #238636;"></i> 12 основных инструментов</li>
+                        <li><i class="fas fa-check" style="color: #238636;"></i> Система уровней (1-5)</li>
+                        <li><i class="fas fa-check" style="color: #238636;"></i> Сообщество в Telegram</li>
+                        <li><i class="fas fa-times" style="color: #da3633;"></i> Интеграция с HTB/Shodan</li>
+                        <li><i class="fas fa-times" style="color: #da3633;"></i> Генератор отчетов (PDF)</li>
+                    </ul>
+                    <a href="#install" class="btn" style="width: 100%;">Начать бесплатно</a>
+                </div>
+                <div class="pricing-card highlight">
+                    <h3><i class="fas fa-crown"></i> Premium Pro</h3>
+                    <p>Полный доступ для карьеры</p>
+                    <div class="price">$17<small>/месяц</small></div>
+                    <ul style="list-style: none; margin: 1.5rem 0;">
+                        <li><i class="fas fa-check" style="color: #238636;"></i> <strong>ВСЕ возможности Free</strong></li>
+                        <li><i class="fas fa-check" style="color: #238636;"></i> Интеграция HTB API (автоимпорт)</li>
+                        <li><i class="fas fa-check" style="color: #238636;"></i> Поиск целей через Shodan</li>
+                        <li><i class="fas fa-check" style="color: #238636;"></i> Генератор PDF отчетов</li>
+                        <li><i class="fas fa-check" style="color: #238636;"></i> 1 час консультации в месяц</li>
+                    </ul>
+                    <p style="color: #9d4edd; font-weight: bold;"><i class="fas fa-bolt"></i> Скоро: форма оплаты через Stripe/Patreon</p>
+                    <p style="font-size: 0.9rem; color: #8b949e;">Пока что пиши в <a href="https://t.me/Hacklab_support" style="color: #58a6ff;">@Hacklab_support</a> для доступа.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>HackLab Manager</strong> — твой старт в кибербезопасности.</p>
+            <p>Мы не просто учим пентесту — мы помогаем найти работу.</p>
+            <div class="social-links" style="margin: 2rem 0;">
+                <a href="https://t.me/Hacklab_manager" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="https://github.com/argasokovk-jpg/hacklab-manager" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:ваш-email@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>© 2024 HackLab Tools. Все права защищены. | <a href="#" style="color: #58a6ff;">Условия использования</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function copyCommand() {
+            const cmd = document.getElementById('installCmd');
+            navigator.clipboard.writeText(cmd.innerText).then(() => {
+                const btn = event.target.closest('.copy-btn');
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Скопировано!';
+                btn.style.background = '#238636';
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.background = '';
+                }, 2000);
+            });
+        }
+        // Плавная прокрутка для якорей
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
