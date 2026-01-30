@@ -15,7 +15,6 @@ if ! command -v git &> /dev/null; then
     echo -e "${RED}❌ Git is not installed!${NC}"
     echo "Ubuntu/Debian: sudo apt install git"
     echo "macOS: brew install git"
-    echo "Windows: https://git-scm.com/download/win"
     exit 1
 fi
 
@@ -24,15 +23,10 @@ if ! command -v python3 &> /dev/null; then
     exit 1
 fi
 
-echo -e "${YELLOW}[1/4] 📥 Cloning repository...${NC}"
-git clone https://github.com/argasokovk-jpg/hacklabtools.ru.git ~/.hacklab_temp
+echo -e "${YELLOW}[1/4] 📥 Cloning HackLab Manager...${NC}"
+git clone https://github.com/argasokovk-jpg/hacklab-manager.git ~/.hacklab
 
-echo -e "${YELLOW}[2/4] 📂 Creating directory...${NC}"
-mkdir -p ~/.hacklab
-cp -r ~/.hacklab_temp/* ~/.hacklab/
-rm -rf ~/.hacklab_temp
-
-echo -e "${YELLOW}[3/4] 🔧 Setting up...${NC}"
+echo -e "${YELLOW}[2/4] 🔧 Setting up...${NC}"
 mkdir -p ~/.hacklab/scans
 chmod +x ~/.hacklab/main.py
 
@@ -48,12 +42,8 @@ if ! grep -q "alias hl=" "$CONFIG_FILE"; then
     echo 'alias hl="python3 ~/.hacklab/main.py"' >> "$CONFIG_FILE"
 fi
 
-echo -e "${YELLOW}[4/4] 📦 Checking dependencies...${NC}"
-
-if command -v pip3 &> /dev/null && [ -f ~/.hacklab/requirements.txt ]; then
-    echo "Installing Python packages..."
-    pip3 install -r ~/.hacklab/requirements.txt --quiet
-fi
+echo -e "${YELLOW}[3/4] 📦 Installing dependencies...${NC}"
+pip3 install requests beautifulsoup4 colorama --quiet
 
 echo ""
 echo -e "${GREEN}✅ Installation complete!${NC}"
