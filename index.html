@@ -1,36 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>HackLab Tools - Penetration Testing Platform</title>
-    <meta charset="utf-8">
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 40px; line-height: 1.6; }
-        h1 { color: #2e8555; }
-        code { background: #f6f8fa; padding: 4px 8px; border-radius: 4px; font-family: monospace; }
-        .install { background: #2e8555; color: white; padding: 20px; border-radius: 8px; margin: 30px 0; }
-    </style>
-</head>
-<body>
-    <h1>🚀 HackLab Tools v2.0</h1>
-    <p><strong>CLI platform for learning penetration testing from scratch to professional</strong></p>
-    
-    <div class="install">
-        <h3>🚀 One-command installation:</h3>
-        <code>curl -sSL https://install.hacklabtools.ru | bash</code>
-    </div>
-    
-    <h2>✨ Features:</h2>
-    <ul>
-        <li>✅ 12 pentest tools (network scan, web scanner, SQLi, XSS, etc.)</li>
-        <li>✅ Gamification system (levels 1-10)</li>
-        <li>✅ Auto-save results</li>
-        <li>✅ Beginner/Pro modes</li>
-        <li>✅ Career path guidance</li>
-    </ul>
-    
-    <p>📚 <a href="https://github.com/yourusername/hacklab">GitHub Repository</a></p>
-    <p>💬 <a href="https://t.me/hacklabchat">Telegram Community</a> (coming soon)</p>
-    
-    <p><em>🔥 Goal: $100,000+/year by age 20 through cybersecurity career</em></p>
-</body>
-</html>
+<div class="install">
+    <h3>🚀 One-command installation:</h3>
+    <code id="installCommand">curl -sSL https://raw.githubusercontent.com/argasokovk-jpg/hacklabtools.ru/main/install.sh | bash</code>
+    <button onclick="copyCommand()" style="margin-left: 10px; padding: 5px 15px;">📋 Copy</button>
+</div>
+
+<script>
+function copyCommand() {
+    const command = document.getElementById('installCommand').innerText;
+    navigator.clipboard.writeText(command).then(() => {
+        alert('Command copied to clipboard!');
+    });
+}
+</script>
